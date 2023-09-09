@@ -1,0 +1,23 @@
+name: base workflows # workflows
+
+on:
+  push:
+    branches:
+      - main
+
+# 목록
+jobs:
+  build:
+    runs-on: ubuntu-latest # 환경
+
+    steps: # 작업목록
+      - name: action 1
+        run: echo Hello, world
+
+      - name: action2 multiline
+        run: | 
+        echo Hello, world 1
+        echo Hello, world 2
+        echo Hello, world 3
+
+  # event
