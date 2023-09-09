@@ -37,6 +37,9 @@ jobs:
       - name: check git remote
         run: git remote -v
 
+      - name: print git envirable
+        run: echo ${{ github }}
+
       # - name: login git
       #   run: |
       #   git config --global user.name "ahn0min"
