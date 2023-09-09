@@ -22,5 +22,8 @@ jobs:
       - name: check current folder list
         run: ls -all
 
+      - name: refresh remote branch
+        run: git pull origin master
+
       - name: transpile .ts into .js
         run: tsc index.ts
