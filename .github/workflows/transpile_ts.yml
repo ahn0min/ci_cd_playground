@@ -38,7 +38,9 @@ jobs:
         run: git remote -v
 
       - name: print git envirable
-        run: echo ${{ github }}
+        run: |
+          echo "Github Context"
+          echo "${{ toJson(github) }}" | jq .
 
       # - name: login git
       #   run: |
