@@ -37,16 +37,17 @@ jobs:
       - name: check git remote
         run: git remote -v
 
-      - name: print git envirable
-        run: |
-          echo "Github Context"
-          echo "${{ toJson(github) }}"
+      # - name: print git envirable
+      #   run: |
+      #     echo "Github Context"
+      #     echo "${{ toJson(github) }}"
 
       - name: login git
         run: |
           echo "${{ github.ref }}"
           git config --global user.name "ahn0min"
           git config --global user.email "ahn0min95@gmail.com"
+          git add dist
           git commit -m "build: result build"
           git push origin ${{ github.ref }}
       #
