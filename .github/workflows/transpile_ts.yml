@@ -29,6 +29,8 @@ jobs:
         run: tsc
 
   check-compiled:
+    runs-on: ubuntu-latest
+
     steps:
       - name: check current folder list
         run: ls
