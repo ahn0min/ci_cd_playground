@@ -1,10 +1,11 @@
 name: transpile tsc
 
 on:
-  push: #Event
+  push:
     branches:
-      # - master
       - main
+      - feat/1
+      - feat/2
 
 jobs:
   install:
@@ -51,15 +52,5 @@ jobs:
           git add dist
           git commit -m "build: result build"
           git push origin master
-
-      #  git push origin ${{ github.ref }}
-      #
-
-      #   git add dist
-      #
-
-      ## 성공했을때를 가정
-
-      # - name:
-
-      # "refs/heads/master",
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
