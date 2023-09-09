@@ -16,8 +16,11 @@ jobs:
       - name: check typescript version
         run: tsc -v
 
+      - name: Check current working directory
+        run: pwd
+
       - name: check current folder list
-        run: ls
+        run: ls -all
 
       - name: transpile .ts into .js
         run: tsc index.ts
