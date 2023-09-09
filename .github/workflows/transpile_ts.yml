@@ -28,6 +28,12 @@ jobs:
       - name: transpile .ts into .js
         run: tsc
 
+      - name: check current folder list
+        run: ls
+
+      - name: check dist/index.ts
+        run: ls -i dist
+
   check-compiled:
     runs-on: ubuntu-latest
 
