@@ -40,16 +40,21 @@ jobs:
       - name: print git envirable
         run: |
           echo "Github Context"
-          echo "${{ toJson(github) }}" | jq .
+          echo "${{ toJson(github) }}"
 
-      # - name: login git
-      #   run: |
-      #   git config --global user.name "ahn0min"
-      #   git config --global user.email "ahn0min95@gmail.com"
+      - name: login git
+        run: |
+          echo "${{ github.ref }}"
+          git config --global user.name "ahn0min"
+          git config --global user.email "ahn0min95@gmail.com"
+          git commit -m "build: result build"
+          git push origin ${{ github.ref }}
+      #
       #   git add dist
-      #   git commit -m "build: result build"
-      #   git push origin ${{ github.ref }}
+      #
 
       ## 성공했을때를 가정
 
       # - name:
+
+      # "refs/heads/master",
