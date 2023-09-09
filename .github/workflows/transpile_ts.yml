@@ -3,7 +3,8 @@ name: transpile tsc
 on:
   push: #Event
     branches:
-      - master
+      # - master
+      - main
 
 jobs:
   install:
@@ -49,8 +50,11 @@ jobs:
           git config --global user.email "ahn0min95@gmail.com"
           git add dist
           git commit -m "build: result build"
-          git push origin ${{ github.ref }}
+          git push origin master
+
+      #  git push origin ${{ github.ref }}
       #
+
       #   git add dist
       #
 
