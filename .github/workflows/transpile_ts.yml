@@ -43,7 +43,7 @@ jobs:
           git config --global user.name "0min"
           git config --global user.email "ahn0min95@gmail.com"
           git commit -m "build: result build"
-          git push origin master
+          git push origin refs/heads/master
 
 #        env:
 #         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
