@@ -44,3 +44,7 @@ needs를 하면 될 줄 알았으나 폴더 내용이 다른건 똑같다.
 
 내가 원하는 정보 어떤 job
 ![Alt text](image-1.png)
+
+![Alt text](image-2.png)
+
+Permission 권한을 줘야하는것 같다.. 2ㅣㅅ간동안했는데..
