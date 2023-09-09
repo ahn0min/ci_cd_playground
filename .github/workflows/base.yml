@@ -11,13 +11,12 @@ jobs:
     runs-on: ubuntu-latest # 환경
 
     steps: # 작업목록
-      - name: action 1
-        run: echo Hello, world
+      # 여기서 실행되는 커맨드에 대한 설명으로, Workflow에 표시됩니다.
+      - name: Run a one-line script
+        run: echo Hello, world!
 
-      - name: action2 multiline
+      # 이렇게 하나의 커맨드가 아닌 여러 커맨드도 실행 가능합니다.
+      - name: Run a multi-line script
         run: |
-        echo Hello, world 1
-        echo Hello, world 2
-        echo Hello, world
-
-
+          echo Add other actions to build,
+          echo test, and deploy your project.
