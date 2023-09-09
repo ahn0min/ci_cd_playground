@@ -34,13 +34,17 @@ jobs:
       - name: check dist/index.ts
         run: ls -i dist
 
-  check-compiled:
-    needs: install
-    runs-on: ubuntu-latest
+      - name: check git remote
+        run: git remote -v
 
-    steps:
-      - name: check current folder list
-        run: ls
+      # - name: login git
+      #   run: |
+      #   git config --global user.name "ahn0min"
+      #   git config --global user.email "ahn0min95@gmail.com"
+      #   git add dist
+      #   git commit -m "build: result build"
+      #   git push origin ${{ github.ref }}
 
-      - name: check dist/index.ts
-        run: ls -i dist
+      ## 성공했을때를 가정
+
+      # - name:
