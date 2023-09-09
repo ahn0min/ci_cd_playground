@@ -32,17 +32,21 @@ jobs:
         run: |
           git remote -v
           git branch -r
+          echo "Local Branch List"
+          git branch
 
       - name: login git
         run: |
           echo "${{ github.ref }}"
-          echo "${{ toJson(github) }}"
           git add dist
           git config --global user.name "0min"
           git config --global user.email "ahn0min95@gmail.com"
           git commit -m "build: result build"
           git push origin master
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+#        env:
+#         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+# echo "${{ toJson(github) }}"
+
 # git config --global user.name "ahn0min"
 # git config --global user.email "ahn0min95@gmail.com"
