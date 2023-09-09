@@ -35,6 +35,7 @@ jobs:
         run: ls -i dist
 
   check-compiled:
+    need: install
     runs-on: ubuntu-latest
 
     steps:
