@@ -14,12 +14,8 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
-
-      - name: Check current working directory
-        run: pwd
-
-      - name: check current folder list
-        run: ls -all
+          with:
+            fetch-depth: 0
 
       - name: install typescript
         run: npm install typescript
@@ -28,21 +24,14 @@ jobs:
         run: tsc -v
 
       - name: transpile .ts into .js
-        run: tsc
-
-      - name: check current folder list
-        run: ls
-
-      - name: check dist/index.ts
-        run: ls -i dist
+        run: |
+          tsc
+          ls -i dist
 
       - name: check git remote
-        run: git remote -v
-
-      # - name: print git envirable
-      #   run: |
-      #     echo "Github Context"
-      #     echo "${{ toJson(github) }}"
+        run: |
+          git remote -v
+          git branch -r
 
       - name: login git
         run: |
