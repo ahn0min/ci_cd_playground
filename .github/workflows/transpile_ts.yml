@@ -13,5 +13,8 @@ jobs:
       - name: install typescript
         run: npm install typescript
 
-      - name: print tsc
+      - name: check typescript version
         run: tsc -v
+
+      - name: transpile .ts into .js
+        run: tsc components/index.ts
