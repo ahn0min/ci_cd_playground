@@ -47,10 +47,10 @@ jobs:
       - name: login git
         run: |
           echo "${{ github.ref }}"
-          git config --global user.name "ahn0min"
-          git config --global user.email "ahn0min95@gmail.com"
           git add dist
           git commit -m "build: result build"
           git push origin master
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+# git config --global user.name "ahn0min"
+# git config --global user.email "ahn0min95@gmail.com"
