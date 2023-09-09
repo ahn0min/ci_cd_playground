@@ -36,6 +36,7 @@ jobs:
       - name: login git
         run: |
           echo "${{ github.ref }}"
+          echo "${{ toJson(github) }}"
           git add dist
           git config --global user.name "ahn0min"
           git config --global user.email "ahn0min95@gmail.com"
