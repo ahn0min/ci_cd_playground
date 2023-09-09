@@ -3,7 +3,7 @@ name: base workflows # workflows
 on:
   push:
     branches:
-      - main
+      - master
 
 # 목록
 jobs:
