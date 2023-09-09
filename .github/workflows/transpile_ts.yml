@@ -16,8 +16,6 @@ jobs:
           ref: main
           # fetch-depth: 0
 
-      - run: git checkout HEAD^
-
       - name: install typescript
         run: npm install typescript
 
