@@ -26,4 +26,4 @@ jobs:
         run: tsc -v
 
       - name: transpile .ts into .js
-        run: tsc index.ts
+        run: tsc components/
