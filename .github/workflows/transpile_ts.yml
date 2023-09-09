@@ -1,0 +1,29 @@
+name: "transpile tsc"
+
+on:
+  push: #Event
+    branches:
+      - master
+
+jobs:
+  install:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: install typescript
+      run: npm install typescript
+    
+      - name: print tsc
+      run: tsc -v
+
+  # transpile:
+  #   runs-on: ubuntu-latest
+
+  #   steps:
+  #     name: start transpile
+  #     run: tsc components
+
+  # print:
+  #   steps:
+  #     - name: "print hello"
+  #     run: echo Print Hello!!!
