@@ -15,9 +15,11 @@ jobs:
         run: echo Hello, world
 
       - name: action2 multiline
-        run: | 
+        run: |
         echo Hello, world 1
         echo Hello, world 2
         echo Hello, world 3
 
   # event
+
+
