@@ -10,11 +10,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: install typescript
-        run: npm install typescript
-
-      - name: check typescript version
-        run: tsc -v
+      - name: Checkout repository
+        uses: actions/checkout@v2
 
       - name: Check current working directory
         run: pwd
@@ -22,8 +19,11 @@ jobs:
       - name: check current folder list
         run: ls -all
 
-      - name: refresh remote branch
-        run: git pull origin master
+      - name: install typescript
+        run: npm install typescript
+
+      - name: check typescript version
+        run: tsc -v
 
       - name: transpile .ts into .js
         run: tsc index.ts
