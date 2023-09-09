@@ -1,9 +1,8 @@
 name: transpile tsc
 
 on:
-  push: #Event
+  push:
     branches:
-      # - master
       - main
 
 jobs:
@@ -12,54 +11,32 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
+        with:
+          ref: main
+          # fetch-depth: 0
 
-      - name: Check current working directory
-        run: pwd
-
-      - name: check current folder list
-        run: ls -all
+      - run: git checkout HEAD^
 
       - name: install typescript
         run: npm install typescript
 
-      - name: check typescript version
-        run: tsc -v
-
       - name: transpile .ts into .js
-        run: tsc
-
-      - name: check current folder list
-        run: ls
-
-      - name: check dist/index.ts
-        run: ls -i dist
-
+        run: |
+          tsc
+          ls -i dist
       - name: check git remote
-        run: git remote -v
-
-      # - name: print git envirable
-      #   run: |
-      #     echo "Github Context"
-      #     echo "${{ toJson(github) }}"
-
+        run: |
+          git remote -v
+          git branch -r
+          echo "Local Branch List"
+          git branch
       - name: login git
         run: |
           echo "${{ github.ref }}"
-          git config --global user.name "ahn0min"
-          git config --global user.email "ahn0min95@gmail.com"
+          git pull origin ${{ github.ref }}
           git add dist
+          git config --global user.name "0min"
+          git config --global user.email "ahn0min95@gmail.com"
           git commit -m "build: result build"
-          git push origin master
-
-      #  git push origin ${{ github.ref }}
-      #
-
-      #   git add dist
-      #
-
-      ## 성공했을때를 가정
-
-      # - name:
-
-      # "refs/heads/master",
+          git push origin refs/heads/master
