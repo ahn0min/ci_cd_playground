@@ -37,11 +37,12 @@ jobs:
           git config --global user.name "0min"
           git config --global user.email "ahn0min95@gmail.com"
 
-          if [[ $(git diff --cached --name-only )]]; then
-            echo "Staged changed detected. Committing and pushing..."
+          if [ "$(git diff --cached --name-only)" ]; then
+            echo "Staged changes detected. Committing and pushing..."
             git commit -m "chore: compile .ts into .js"
             git push origin ${{ github.ref }}
           else
             echo "No staged status file"
           fi
+
         # echo Missing input "github_token: ${{ secrets.GITHUB_TOKEN }}"
