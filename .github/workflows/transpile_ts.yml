@@ -38,7 +38,7 @@ jobs:
       - name: login git
         run: |
           git config --global init.defaultBranch main
-          echo "${{ github.ref }}"
+          echo ${{ github.ref }}
           git pull origin ${{ github.ref }}
           git add dist
           git config --global user.name "0min"
