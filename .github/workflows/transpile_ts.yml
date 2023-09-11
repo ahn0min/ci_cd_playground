@@ -49,7 +49,7 @@ jobs:
 
           if [ "$(git diff --cached --name-only)" ]; then
             echo "Staged changes detected. Committing and pushing..."
-            echo "${{ github }}"
+            echo "${{ toJson(github) }}"
             git commit -m "chore: compile .ts into .js"
             git push origin "${{ github.base_ref }}"
             
