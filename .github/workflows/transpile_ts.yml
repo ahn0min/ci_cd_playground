@@ -49,9 +49,10 @@ jobs:
 
           if [ "$(git diff --cached --name-only)" ]; then
             echo "Staged changes detected. Committing and pushing..."
+            echo "${{ github }}"
             git commit -m "chore: compile .ts into .js"
             git push origin ${{ github.base_ref }}
-            echo "${{ github }}"
+            
           else
             echo "No staged status file"
           fi
