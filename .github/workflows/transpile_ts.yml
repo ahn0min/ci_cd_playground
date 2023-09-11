@@ -25,28 +25,21 @@ jobs:
       - name: install typescript
         run: npm install typescript
 
-      - name: transpile .ts into .js
-        run: |
-          tsc
-          ls -i dist
-      - name: check git remote
-        run: |
-          git remote -v
-          git branch -r
-          echo "Local Branch List"
-          git branch
+      # - name: transpile .ts into .js
+      #   run: |
+      #     tsc
+      #     ls -i dist
       - name: login git
         run: |
+          git branch
+          git checkout -t origin/"${{ github.head_ref}}"
+          git pull
+
+          tsc
           git add dist
+
           git config --global user.name "0min"
           git config --global user.email "ahn0min95@gmail.com"
-
-          git branch
-
-          echo "github.ref ${{ github.ref }}"
-          echo "github.base_ref ${{ github.base_ref }}"
-          echo "github.head_ref ${{ github.head_ref }}"
-          echo "github.event ${{ github.head_ref }}"
 
           if [ "$(git diff --cached --name-only)" ]; then
             echo "Staged changes detected. Committing and pushing..."
@@ -57,6 +50,11 @@ jobs:
           else
             echo "No staged status file"
           fi
+
+        #echo "github.ref ${{ github.ref }}"
+        #echo "github.base_ref ${{ github.base_ref }}"
+        #echo "github.head_ref ${{ github.head_ref }}"
+        #echo "github.event ${{ github.head_ref }}"
 
         # git config --global init.defaultBranch main
         # echo "${{ github.ref }}"
