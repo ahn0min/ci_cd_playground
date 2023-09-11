@@ -37,16 +37,16 @@ jobs:
           git branch
       - name: login git
         run: |
-          git config --global init.defaultBranch main
-          echo "${{ github.ref }}""
-          git pull origin "${{ github.ref }}""
           git add dist
           git config --global user.name "0min"
           git config --global user.email "ahn0min95@gmail.com"
 
+          git branch
+
           echo "github.ref ${{ github.ref }}"
           echo "github.base_ref ${{ github.base_ref }}"
           echo "github.head_ref ${{ github.head_ref }}"
+          echo "github.event ${{ github.head_ref }}"
 
           if [ "$(git diff --cached --name-only)" ]; then
             echo "Staged changes detected. Committing and pushing..."
@@ -57,5 +57,9 @@ jobs:
           else
             echo "No staged status file"
           fi
+
+        # git config --global init.defaultBranch main
+        # echo "${{ github.ref }}"
+        # git pull origin "${{ github.ref }}"
 
         # echo Missing input "github_token: ${{ secrets.GITHUB_TOKEN }}"
