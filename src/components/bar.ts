@@ -1,1 +1,1 @@
-const bar = "I'm bar";
+const bar = "I'm changed bar";
