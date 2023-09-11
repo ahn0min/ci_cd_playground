@@ -1,9 +1,13 @@
 name: transpile tsc
 
 on:
-  push:
-    branches:
-      - main
+  pull_request:
+    types:
+      - opened
+
+  # push:
+  # branches:
+  # - main
 
 jobs:
   install:
