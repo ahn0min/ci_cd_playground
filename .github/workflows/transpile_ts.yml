@@ -46,12 +46,13 @@ jobs:
 
           echo "github.ref ${{ github.ref }}"
           echo "github.base_ref ${{ github.base_ref }}"
+          echo "github.head_ref ${{ github.head_ref }}"
 
           if [ "$(git diff --cached --name-only)" ]; then
             echo "Staged changes detected. Committing and pushing..."
             echo "${{ toJson(github) }}"
             git commit -m "chore: compile .ts into .js"
-            git push origin "${{ github.base_ref }}"
+            git push origin "${{ github.head_ref }}"
             
           else
             echo "No staged status file"
